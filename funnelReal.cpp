@@ -677,7 +677,7 @@ void showResults(vector<IplImage *> &images, vector<vector<float> > &v, int h, i
       cvMatMul(xform, &cropT2invCVM, xform);     
       
       IplImage* dst =  cvCreateImage(cvSize(images[i]->width, images[i]->height), images[i]->depth, 3);
-      cvWarpAffine(images[i], dst, xform, CV_WARP_INVERSE_MAP + CV_WARP_FILL_OUTLIERS);
+      cvWarpAffine(images[i], dst, xform, CV_WARP_INVERSE_MAP + CV_WARP_FILL_OUTLIERS + CV_INTER_LINEAR);
       
       cvSaveImage(ofns[i].c_str(), dst);
 

@@ -1107,7 +1107,7 @@ void MakeFrame(vector<IplImage *> &images, vector<vector<float> > &v, int h, int
 	  cvMatMul(xform2, &preCVM, xform2);
 	  cvInvert(xform2, xformInv);
 	  
-	  cvWarpAffine(images[ii], dst, xform, CV_WARP_INVERSE_MAP + CV_WARP_FILL_OUTLIERS);
+	  cvWarpAffine(images[ii], dst, xform, CV_WARP_INVERSE_MAP + CV_WARP_FILL_OUTLIERS + CV_INTER_LINEAR);
 	  
 	  int BsqPts[5][2];
 	  for(int b=0; b<5; b++)
@@ -1238,7 +1238,7 @@ void showResults(char *imageListFn, vector<vector<float> > &v, int h, int w,
 	      cvMatMul(&cropT1invCVM, &cropS1invCVM, xform2);
 	      cvMatMul(xform2, &preCVM, xform2);
 	      
-	      cvWarpAffine(images[ii], dst, xform2, CV_WARP_INVERSE_MAP + CV_WARP_FILL_OUTLIERS);
+	      cvWarpAffine(images[ii], dst, xform2, CV_WARP_INVERSE_MAP + CV_WARP_FILL_OUTLIERS + CV_INTER_LINEAR);
 	      
 	      cvReleaseMat(&xform2);
 	  
@@ -1279,7 +1279,7 @@ void showResults(char *imageListFn, vector<vector<float> > &v, int h, int w,
 	  cvMatMul(xform, &cropT2invCVM, xform);
 	  
 	  dst =  cvCreateImage(cvSize(images[ii]->width, images[ii]->height), images[ii]->depth, images[ii]->nChannels);
-	  cvWarpAffine(images[ii], dst, xform, CV_WARP_INVERSE_MAP + CV_WARP_FILL_OUTLIERS);
+	  cvWarpAffine(images[ii], dst, xform, CV_WARP_INVERSE_MAP + CV_WARP_FILL_OUTLIERS + CV_INTER_LINEAR);
 	  
 	  cvReleaseMat(&xform);
 	  
