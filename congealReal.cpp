@@ -1261,12 +1261,13 @@ void showResults(char *imageListFn, vector<vector<float> > &v, int h, int w,
 		cvLine(dst, cvPoint(BsqPts[b][0], BsqPts[b][1]), cvPoint(BsqPts[b+1][0], BsqPts[b+1][1]), cvScalar(0,0,255),2);
 	      
 	      cvResize(dst, results);
+
+	      cvReleaseMat(&xform);
 	    }
 	  cvResetImageROI(results);
 	  cvRectangle(results, cvPoint(xs*100, ys*100), 
 		      cvPoint(xs*100 + (int)(w/scale) + 1, ys*100 + (int)(h/scale) + 1), cvScalar(255,0,0), 1);
 	  
-	  cvReleaseMat(&xform);
 	  cvReleaseImage(&dst);
 	  
 	  // do after image
