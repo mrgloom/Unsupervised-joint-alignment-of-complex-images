@@ -1,5 +1,5 @@
 Unsupervised joint alignment of complex images
-Source code
+http://vis-www.cs.umass.edu/code/congealingcomplex/
 
 All code provided under a BSD-style license.  Terms of license can be
 found at the top of each source file.
