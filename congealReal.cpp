@@ -674,7 +674,7 @@ int main(int argc, char* argv[])
     {
       for(int j=paddingH; j<height-paddingH; j+=2)
 	{
-	  for(int k=paddingW; k<height-paddingW; k+=2)
+	  for(int k=paddingW; k<width-paddingW; k+=2)
 	    {
 	      int label = labels->data.i[AFi];
 	      sigmaSq[label] += dist(originalFeatures[i][j][k], centroids[label]);
